@@ -1,0 +1,22 @@
+Contract headers:
+  - contractid: unique identifier of the contract
+  - registration_month: last day of the month contract registered
+  - registration_date: exact date contract was registered
+  - company: company that owns/initiated the contract with the customer
+  - country: country of operation
+  - gender: Customer Gender (if given)
+  - household_size: # of peopl in customers household (if given)
+  - occupation: occupation of customer (if given)
+  - source_of_light: source of lighting before purchasing (if given)
+  - contract_type: CASH (all paid upfront) or FINANCED (Paygo sale)
+  - product_family: Grouping for SKUs e.g. solar home system, phones etc
+  - baseunit_productname: The name of the SKU 
+  - has_accessory: 1 if product comes with an accessory like a TV, 0 if not
+  - down_payment_usd: For CASH this is the total contract value, for FINANCED it is the deposit required (in USD)
+  - daily_payment_amount_usd: amount customer is required to pay each day  (in USD)
+  - contract_tenor_days: number of days customer must pay to fully pay off the contract
+
+Payment headers:
+  - contract_id: unique identifier of the contract
+  - pay_month: last day of the month the payment was made in
+  - total_paid: total amount paid that (in USD)
