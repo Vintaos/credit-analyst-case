@@ -34,3 +34,40 @@ To assess the portfolio quality, repayment discipline, credit risk, and cashflow
 
 ## 📁 Project Structure
 
+│
+├── wakanda_analysis.py # Main Python script
+├── /data/ # Contains cleaned or sample data (CSV)
+├── /images/ # Screenshots of Tableau dashboards (optional)
+└── README.md # This file
+
+
+
+---
+
+## 📊 Tableau Dashboards
+
+Visualizations include:
+- Collection & repayment trends
+- PAR trends (30, 60, 90, 120)
+- Write-off rates over time
+- Product & vintage performance
+- Forecasted cashflows
+
+> Dashboards available upon request or shared separately for privacy reasons.
+
+---
+
+## 📈 Outcome
+
+Wakanda Solar demonstrates improving credit quality, stronger collections in recent months, and higher projected cashflows — making it a promising acquisition target.
+
+---
+
+## 🤝 Contact
+
+**Vincent Aketch**  
+Credit Analyst Candidate  
+📧 vaaketch@gmail.com  
+📱 +254 718 738 432
+
+---
