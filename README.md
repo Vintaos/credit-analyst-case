@@ -66,7 +66,7 @@ Wakanda Solar demonstrates improving credit quality, stronger collections in rec
 ## 🤝 Contact
 
 **Vincent Aketch**  
-Credit Analyst Candidate  
+Credit Analyst
 📧 vaaketch@gmail.com  
 📱 +254 718 738 432
 
