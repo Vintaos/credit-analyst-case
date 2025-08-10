@@ -8,6 +8,8 @@ from datetime import datetime
 from pandas.tseries.offsets import MonthBegin
 import smtplib
 from email.message import EmailMessage
+import shutil
+import subprocess
 
 warnings.filterwarnings("ignore", category=UserWarning, module="matplotlib")
 
@@ -370,7 +372,79 @@ def main():
         projection_df.to_excel(writer, sheet_name='Cashflow_Projection', index=False)
         portfolio_value_df.to_excel(writer, sheet_name='Portfolio_Value', index=False)
         #monthly_writeoff.to_excel(writer, sheet_name='Write_Offs', index=False)
-    print(f"✅ Data processing complete. Results saved to {file_path}")
+    
+
+
+
+
+# Define your local repo path (update this to your actual local path)
+    local_repo_path = Path(r"C:\Users\Finance Trainee\Documents\GitHub\credit-analyst-case")  # <-- CHANGE THIS!
+    repo_excel_path = local_repo_path / "dlight_cleaned_data.xlsx"
+
+    # Copy the Excel file to your repo folder
+    shutil.copy(file_path, repo_excel_path)
+    print(f"✅ Excel file copied to repo at {repo_excel_path}")
+
+    # Automate git add, commit, and push
+    try:
+        subprocess.run(["git", "add", str(repo_excel_path)], cwd=local_repo_path, check=True)
+        subprocess.run(["git", "commit", "-m", "Auto-update: latest dlight_cleaned_data.xlsx"], cwd=local_repo_path, check=True)
+        subprocess.run(["git", "push"], cwd=local_repo_path, check=True)
+        print("✅ Excel file committed and pushed to GitHub.")
+    except Exception as e:
+        print(f"⚠️ Git automation failed: {e}")
+
+
+
+
+
+
+    # --- SEND EMAIL WITHOUT ATTACHMENT ---
+    def send_email_without_attachment(subject, body, to_email):
+        sender_email = "vaaketch@gmail.com"
+        sender_password = "ktcc qkoj jpks igpe"  # Use an app password, not your main password
+    
+        msg = EmailMessage()
+        msg["Subject"] = subject
+        msg["From"] = sender_email
+        msg["To"] = to_email
+        msg.set_content(body)
+    
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(sender_email, sender_password)
+            smtp.send_message(msg)
+        print(f"✅ Email sent to {to_email} with subject: {subject}")
+    
+        # Call the email function after saving the Excel file
+    send_email_without_attachment(
+        subject="Congratulations",
+        body=(
+            "Dear Vincent, we are pleased hahaha. am waiting for good tech news.\n\n"
+            "Download the latest Excel file here:\n"
+            "https://github.com/Vintaos/credit-analyst-case/raw/main/dlight_cleaned_data.xlsx"
+        ),
+        to_email="vaaketch@gmail.com"
+    )
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
 
     end_time = time.time()
     print(f"✅ Data processing complete in {end_time - start_time:.2f} seconds.")
