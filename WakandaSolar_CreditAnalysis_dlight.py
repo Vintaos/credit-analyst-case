@@ -402,7 +402,7 @@ def main():
     # --- SEND EMAIL WITHOUT ATTACHMENT ---
     def send_email_without_attachment(subject, body, to_email):
         sender_email = "vaaketch@gmail.com"
-        sender_password = "ktcc qkoj jpks igpe"  # Use an app password, not your main password
+        sender_password = ""  # Use an app password, not your main password
     
         msg = EmailMessage()
         msg["Subject"] = subject
@@ -451,5 +451,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 # === END OF SCRIPT ===
